@@ -1,0 +1,14 @@
+[Unit]
+Description=Telegram bot
+After=network.target
+
+[Service]
+Type=simple
+User=local-mihail # замените USERNAME на имя пользователя, от имени которого нужно запускать бота
+WorkingDirectory=/path/to/bot/directory # замените /path/to/bot/directory на путь к директории с ботом
+ExecStart=/usr/bin/python3 /path/to/bot/directory/bot.py # замените /path/to/bot/directory на путь к директории с ботом и bot.py на имя файла с ботом
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
